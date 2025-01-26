@@ -7,10 +7,8 @@ from networktables import NetworkTables
 # cget = part of tkinter that retrieves information
 def buttonPressed(button, place):
     print(button.cget("text") + " was chosen at " + place)
-    button.configure(fg="white", bg="green")
     sidecarTables.putString("scoringLocation", place)
     print(place + " chosen")
-    button.configure(fg="black", bg="white")
     print("The location is " + place)
 
 # method for hexagon
