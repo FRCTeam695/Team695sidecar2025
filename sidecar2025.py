@@ -72,29 +72,29 @@ for idx, label in enumerate(buttonLabels):
     #btn.config(command=lambda b=btn, l=label: buttonPressed(b, l))
    
     if label=="A":
-        button.place(x=255, y=80)
-    if label=="B":
-        button.place(x=185, y=80)
-    if label=="C":
-        button.place(x=90, y=120)
-    if label=="D":
-        button.place(x=60, y=180)
-    if label=="E":
-        button.place(x=60, y=290)
-    if label=="F":
-        button.place(x=90, y=350)
-    if label=="G":
         button.place(x=185, y=390)
-    if label=="H":
+    if label=="B":
         button.place(x=255, y=390)
-    if label=="I":
+    if label=="C":
         button.place(x=350, y=350)
-    if label=="J":
+    if label=="D":
         button.place(x=380, y=290)
-    if label=="K":
+    if label=="E":
         button.place(x=380, y=180)
-    if label=="L":
+    if label=="F":
         button.place(x=350, y=120)
+    if label=="G":
+        button.place(x=255, y=80)
+    if label=="H":
+        button.place(x=185, y=80)
+    if label=="I":
+        button.place(x=90, y=120)
+    if label=="J":
+        button.place(x=60, y=180)
+    if label=="K":
+        button.place(x=60, y=290)
+    if label=="L":
+        button.place(x=90, y=350)
 
 # GUI
 window.mainloop()
