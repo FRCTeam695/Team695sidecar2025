@@ -26,7 +26,7 @@ label.pack(padx = 20, pady = 20) #padding, adjust position of label
 textbox = tk.Text(root, height = 3, font = ('Arial', 16)) #height of 3 lines
 textbox.pack(padx = 10)
 
-button = tk.Button(root, text = "Click Me!", font = ('Arial', 19))
+button = tk.Button(root, text = "Click Me!", font = ('Arial', 19), command=change_color)
 button.pack(padx=10, pady=10)
 
 buttonframe = tk.Frame(root)
@@ -56,6 +56,10 @@ buttonframe.pack(fill='x')
 
 anotherbtn = tk.Button(root, text="TEST")
 anotherbtn.place(x=200, y=200, height=100, width=100)
+
+def change_color():
+    print("COLOR HAS CHANGED")
+    button.config(bg='green')
 
 root.mainloop() 
 '''
