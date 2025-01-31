@@ -11,26 +11,16 @@ def buttonPressed(button, place):
     sidecarTables.putString("scoringLocation", place)
 
     for butt in buttons:
-        if(butt['bg'] == '#00C957'):
-            butt['bg'] = 'white'
-
-    if button['bg'] == 'white':
-        button['bg'] = '#00C957'
-    else:
-        button['bg'] = 'white'
+        butt['bg'] = 'white'
+    button['bg'] = '#00C957'
 
 def scoringLevel(button, place):
     print("Level " + str(place) + " was chosen")
     sidecarTables.putString("scoringLevel", place)
 
     for butt in buttons2:
-        if(butt['bg'] == '#9400D3'):
-            butt['bg'] = 'white'
-
-    if button['bg'] == 'white':
-        button['bg'] = '#9400D3'
-    else:
-        button['bg'] = 'white'
+        butt['bg'] = 'white'
+    button['bg'] = '#9400D3'
 
 
 def valueChanged(table, key, value, isNew):
