@@ -22,8 +22,8 @@ def scoringLevel(button, place):
         butt['bg'] = 'white'
     button['bg'] = '#9400D3'
 
-
-def valueChanged(table, key, value, isNew):
+#change color of hexagon depending on alliance color
+def valueChanged(table, key, value, isNew): 
     global G_alliancecolor
     print("valueChanged: key: '%s'; value: %s; isNew: %s" % (key, value, isNew))
     if key == "IsRedAlliance":
@@ -74,8 +74,6 @@ buttons = []
 buttonLabels = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"]
 
 # create each button
-# idx, label in enumerate(list): = way in python to make loops
-# lambda is needed to pass arguements (when button pressed, do smth)
 i = 0
 while i <= 11:
     button = tk.Button(
