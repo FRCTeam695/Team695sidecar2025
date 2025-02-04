@@ -1,12 +1,17 @@
 import tkinter as tk
 import array as arr
+import csv
 
 import time
 import sys
 
 from networktables import NetworkTables
 
+
 def buttonPressed(button, place):
+    global location
+    location = place
+
     print(place + " was chosen")
     sidecarTables.putString("scoringLocation", place)
 
@@ -14,13 +19,20 @@ def buttonPressed(button, place):
         butt['bg'] = 'white'
     button['bg'] = '#00C957'
 
+    combinationater(place, level)
+
 def scoringLevel(button, place):
-    print("Level " + str(place) + " was chosen")
+    global level
+    level = place
+
+    print(place + " was chosen")
     sidecarTables.putString("scoringLevel", place)
 
     for butt in buttons2:
         butt['bg'] = 'white'
     button['bg'] = '#9400D3'
+
+    combinationater(location, place)
 
 #change color of hexagon depending on alliance color
 def valueChanged(table, key, value, isNew): 
@@ -31,6 +43,19 @@ def valueChanged(table, key, value, isNew):
             G_alliancecolor = "#FF3030"
         else:
             G_alliancecolor = "#1E90FF"
+
+
+used_combinations = set()
+
+#log all used combinations
+def combinationater(place, level):
+    new_combination = (place, level)
+
+    if new_combination not in used_combinations:
+        used_combinations.add(new_combination)
+        print("New combination added: " + str(new_combination))
+    else:
+        print("Combination " + str(new_combination) + " already used")
 
 def connectionListener(connected, info):
     print(info, "; Connected=%s" % connected)
@@ -67,7 +92,11 @@ window.title("Reef GUI") #title
 canvas = tk.Canvas(window, width = 800, height = 500, bg = 'white')
 canvas.place(x=0, y=0)
 
-canvas.create_polygon((175,120, 325,120, 400,250, 325,380, 175,380, 100,250), fill = 'gray', outline=G_alliancecolor, width='5') #hexagon
+canvas.create_polygon((175,120, 325,120, 400,250, 325,380, 175,380, 100,250), fill = 'gray', outline="red", width='5') #hexagon
+
+
+matrix = [[False for _ in range(8)] for _ in range(4)]
+#matrix[index][level] = True
 
 #buttons
 buttons = []
@@ -127,7 +156,7 @@ buttons[11].config(command=lambda b="L": buttonPressed(buttons[11], b))
 #buttons for selecting level
 label = tk.Label(window, text = "Select Level", font=('Book Antiqua', 18))
 label.place(x=500, y=0, height=75, width=300)
-label.config(bg=G_alliancecolor)
+label.config(bg="red")
 
 buttons2 = []
 j = 0
@@ -143,16 +172,24 @@ while j <= 3:
     j += 1
 
 buttons2[3].place(x=550, y=100, height=75, width=200)
-buttons2[3].config(command=lambda b="4": scoringLevel(buttons2[3], b))
+buttons2[3].config(command=lambda b="Level 4": scoringLevel(buttons2[3], b))
 
 buttons2[2].place(x=550, y=200, height=75, width=200)
-buttons2[2].config(command=lambda b="3": scoringLevel(buttons2[2], b))
+buttons2[2].config(command=lambda b="Level 3": scoringLevel(buttons2[2], b))
 
 buttons2[1].place(x=550, y=300, height=75, width=200)
-buttons2[1].config(command=lambda b="2": scoringLevel(buttons2[1], b))
+buttons2[1].config(command=lambda b="Level 2": scoringLevel(buttons2[1], b))
 
 buttons2[0].place(x=550, y=400, height=75, width=200)
-buttons2[0].config(command=lambda b="1": scoringLevel(buttons2[0], b))
+buttons2[0].config(command=lambda b="Level 1": scoringLevel(buttons2[0], b))
 
 #run
 window.mainloop()
+
+# Writing to a CSV file after program is finished running
+with open("output.csv", mode="w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow()
+    writer.writerows(used_combinations)
+
+print("Data written to output.csv")
