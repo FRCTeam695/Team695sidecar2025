@@ -42,6 +42,7 @@ def gamePieceSelect():
     if currentIntakeMode == 1:
         currentIntakeMode = 2
         gamePiece.config(bg="#00CED1", text="Algae")
+        canvas['bg'] = "#00CED1"
 
         for i in range(1, len(buttons), 2):
             buttons[i].config(bg='gray', command=obsolete)
@@ -50,7 +51,8 @@ def gamePieceSelect():
     else:
         currentIntakeMode = 1
         gamePiece.config(bg="#9400D3", text="Coral")
-        
+        canvas['bg'] = "#9400D3"
+
         for i in range(1, len(buttons), 2):
             buttons[i].config(bg='white', command=lambda b=i: buttonPressed(b))
         buttons2[0].config(bg='white', command=lambda: scoringLevel(buttons2[0], "Level 1"))
@@ -130,7 +132,7 @@ window.geometry("800x500") #size
 window.title("Reef GUI") #title
 
 #canvas
-canvas = tk.Canvas(window, width = 800, height = 500, bg = 'white')
+canvas = tk.Canvas(window, width = 800, height = 500, bg = '#9400D3')
 canvas.place(x=0, y=0)
 canvas.create_polygon((175,120, 325,120, 400,250, 325,380, 175,380, 100,250), fill = '#D1D1D1', outline=G_alliancecolor, width='5') #hexagon
 
