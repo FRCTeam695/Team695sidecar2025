@@ -88,10 +88,16 @@ def combinationater(place, level):
 
 
 def reset():
-    for butt in buttons:
-        butt['bg'] = "white"
-    for butt in buttons2:
-        butt['bg'] = "white"
+    if(scoringMode == "Coral"):
+        for butt in buttons:
+            butt['bg'] = "white"
+        for butt in buttons2:
+            butt['bg'] = "white"
+    elif(scoringMode == "Algae"):
+        for butt in buttons:
+            butt['bg'] = "white"
+        for butt in buttons2:
+            butt['bg'] = "gray"
 
     sidecarTables.putString("scoringLocation", "")
     sidecarTables.putString("scoringLevel", "")
