@@ -171,8 +171,8 @@ buttons[4].place(x=515, y=160, height=80, width=80) #E
 buttons[5].place(x=484, y=100, height=80, width=80) #F
 buttons[6].place(x=660, y=92, height=80, width=80) #G
 buttons[7].place(x=540, y=92, height=80, width=80) #H
-buttons[8].place(x=215, y=100, height=80, width=80) #I
-buttons[9].place(x=185, y=160, height=80, width=80) #J
+buttons[8].place(x=380, y=170, height=80, width=80) #I
+buttons[9].place(x=340, y=270, height=80, width=80) #J
 buttons[10].place(x=185, y=290, height=80, width=80) #K
 buttons[11].place(x=215, y=350, height=80, width=80) #L
 
