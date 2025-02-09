@@ -198,16 +198,16 @@ while j <= 3:
     buttons2.append(button)
     j += 1
 
-buttons2[3].place(x=1025, y=55, height=140, width=320)
+buttons2[3].place(x=925, y=33, height=140, width=320)
 buttons2[3].config(command=lambda: scoringLevel(buttons2[3], "Level 4"))
 
-buttons2[2].place(x=1025, y=255, height=140, width=320)
+buttons2[2].place(x=925, y=233, height=140, width=320)
 buttons2[2].config(command=lambda: scoringLevel(buttons2[2], "Level 3"))
 
-buttons2[1].place(x=1025, y=455, height=140, width=320)
+buttons2[1].place(x=925, y=433, height=140, width=320)
 buttons2[1].config(command=lambda: scoringLevel(buttons2[1], "Level 2"))
 
-buttons2[0].place(x=1025, y=655, height=140, width=320)
+buttons2[0].place(x=925, y=633, height=140, width=320)
 buttons2[0].config(command=lambda: scoringLevel(buttons2[0], "Level 1"))
 
 #run
