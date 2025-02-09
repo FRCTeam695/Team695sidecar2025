@@ -83,10 +83,16 @@ def combinationater(place, level):
 
 
 def reset():
-    for butt in buttons:
-        butt['bg'] = "white"
-    for butt in buttons2:
-        butt['bg'] = "white"
+    if(scoringMode == "Coral"):
+        for butt in buttons:
+            butt['bg'] = "white"
+        for butt in buttons2:
+            butt['bg'] = "white"
+    elif(scoringMode == "Algae"):
+        for butt in buttons:
+            butt['bg'] = "white"
+        for butt in buttons2:
+            butt['bg'] = "gray"
 
     sidecarTables.putString("scoringLocation", "")
     sidecarTables.putString("scoringLevel", "")
@@ -156,18 +162,18 @@ while i <= 11:
     buttons.append(button)
     i += 1
 
-buttons[0].place(x=540, y=628, height=80, width=80) #A
-buttons[1].place(x=660, y=628, height=80, width=80) #B
-buttons[2].place(x=800, y=570, height=80, width=80) #C
-buttons[3].place(x=840, y=470, height=80, width=80) #D
-buttons[4].place(x=515, y=160, height=80, width=80) #E
-buttons[5].place(x=484, y=100, height=80, width=80) #F
-buttons[6].place(x=660, y=92, height=80, width=80) #G
-buttons[7].place(x=540, y=92, height=80, width=80) #H
-buttons[8].place(x=215, y=100, height=80, width=80) #I
-buttons[9].place(x=185, y=160, height=80, width=80) #J
-buttons[10].place(x=185, y=290, height=80, width=80) #K
-buttons[11].place(x=215, y=350, height=80, width=80) #L
+buttons[0].place(x=460, y=628, height=80, width=80) #A
+buttons[1].place(x=580, y=628, height=80, width=80) #B
+buttons[2].place(x=740, y=550, height=80, width=80) #C
+buttons[3].place(x=800, y=445, height=80, width=80) #D
+buttons[4].place(x=800, y=270, height=80, width=80) #E
+buttons[5].place(x=740, y=160, height=80, width=80) #F
+buttons[6].place(x=580, y=92, height=80, width=80) #G
+buttons[7].place(x=460, y=92, height=80, width=80) #H
+buttons[8].place(x=300, y=160, height=80, width=80) #I
+buttons[9].place(x=240, y=270, height=80, width=80) #J
+buttons[10].place(x=240, y=445, height=80, width=80) #K
+buttons[11].place(x=300, y=550, height=80, width=80) #L
 
 
 #buttons for selecting level
