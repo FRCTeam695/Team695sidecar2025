@@ -35,30 +35,26 @@ def scoringLevel(button, place):
     combinationater(location, place)
 
 def gamePieceSelect():
-    global currentIntakeMode
+    global scoringMode
     global gamePiece
 
-    if currentIntakeMode == "Coral":
-        currentIntakeMode = "Algae"
+    if scoringMode == "Coral":
+        scoringMode = "Algae"
         gamePiece.config(bg="#00CED1", text="Algae")
         canvas['bg'] = "#48D1CC"
 
-        for i in range(1, len(buttons), 2):
-            buttons[i].config(bg='gray', command=obsolete)
-        buttons2[0].config(bg='gray', command=obsolete)
-        buttons2[3].config(bg='gray', command=obsolete)
+        for butt in buttons2:
+            butt.config(bg='gray')
     else:
-        currentIntakeMode = "Coral"
+        scoringMode = "Coral"
         gamePiece.config(bg="#9400D3", text="Coral")
         canvas['bg'] = "#ab3fd9"
 
-        for i in range(1, len(buttons), 2):
-            buttons[i].config(bg='white', command=lambda b=i: buttonPressed(b))
-        buttons2[0].config(bg='white', command=lambda: scoringLevel(buttons2[0], "Level 1"))
-        buttons2[3].config(bg='white', command=lambda: scoringLevel(buttons2[3], "Level 4"))
+        for butt in buttons2:
+            butt.config(bg='white')
 
-    print("Intake mode " + currentIntakeMode + " was chosen")
-    sidecarTables.putString("currentIntakeMode", currentIntakeMode)
+    print("Intake mode " + scoringMode + " was chosen")
+    sidecarTables.putString("currentIntakeMode", scoringMode)
 
 
 #change color of hexagon depending on alliance color
@@ -96,9 +92,6 @@ def reset():
     sidecarTables.putString("scoringLevel", "")
 
 
-def obsolete():
-    print("Button obsolete for selected intake mode")
-
 def connectionListener(connected, info):
     print(info, "; Connected=%s" % connected)
 
@@ -128,8 +121,8 @@ sidecarTables.putString("scoringLocation", "")
 sidecarTables.putString("scoringLevel", "")
 
 #set default intake mode to coral
-currentIntakeMode = "Coral"
-sidecarTables.putString("currentIntakeMode", currentIntakeMode)
+scoringMode = "Coral"
+sidecarTables.putString("currentIntakeMode", scoringMode)
 
 #set default location and level to nothing
 location = ""
@@ -166,7 +159,7 @@ while i <= 11:
 buttons[0].place(x=540, y=628, height=80, width=80) #A
 buttons[1].place(x=660, y=628, height=80, width=80) #B
 buttons[2].place(x=800, y=570, height=80, width=80) #C
-buttons[3].place(x=515, y=290, height=80, width=80) #D
+buttons[3].place(x=840, y=470, height=80, width=80) #D
 buttons[4].place(x=515, y=160, height=80, width=80) #E
 buttons[5].place(x=484, y=100, height=80, width=80) #F
 buttons[6].place(x=660, y=92, height=80, width=80) #G
@@ -178,13 +171,13 @@ buttons[11].place(x=215, y=350, height=80, width=80) #L
 
 
 #buttons for selecting level
-gamePiece = tk.Button(window, text="Coral", bg="#9400D3", font=("Book Antiqua", 18))
+gamePiece = tk.Button(window, text="Coral", bg="#9400D3", font=("Book Antiqua", 24))
 gamePiece.config(command=gamePieceSelect)
-gamePiece.place(x=50, y=117, height=100, width=100)
+gamePiece.place(x=50, y=187, height=160, width=160)
 
-resetButton = tk.Button(window, text="Reset", bg="white", font=("Book Antiqua", 18))
+resetButton = tk.Button(window, text="Reset", bg="white", font=("Book Antiqua", 24))
 resetButton.config(command=reset)
-resetButton.place(x=50, y=283, height=100, width=100)
+resetButton.place(x=50, y=453, height=160, width=160)
 
 buttons2 = []
 j = 0
@@ -198,16 +191,16 @@ while j <= 3:
     buttons2.append(button)
     j += 1
 
-buttons2[3].place(x=925, y=33, height=140, width=320)
+buttons2[3].place(x=910, y=92, height=130, width=320)
 buttons2[3].config(command=lambda: scoringLevel(buttons2[3], "Level 4"))
 
-buttons2[2].place(x=925, y=233, height=140, width=320)
+buttons2[2].place(x=910, y=254, height=130, width=320)
 buttons2[2].config(command=lambda: scoringLevel(buttons2[2], "Level 3"))
 
-buttons2[1].place(x=925, y=433, height=140, width=320)
+buttons2[1].place(x=910, y=416, height=130, width=320)
 buttons2[1].config(command=lambda: scoringLevel(buttons2[1], "Level 2"))
 
-buttons2[0].place(x=925, y=633, height=140, width=320)
+buttons2[0].place(x=910, y=578, height=130, width=320)
 buttons2[0].config(command=lambda: scoringLevel(buttons2[0], "Level 1"))
 
 #run
