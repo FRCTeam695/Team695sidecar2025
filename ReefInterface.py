@@ -85,15 +85,6 @@ def combinationater(place, level):
     else:
         print("Combination " + str(new_combination) + " already used")
 
-def create_hexagon(canvas, x_center, y_center, size):
-    points = []
-    for i in range(6):
-        angle = math.radians(60 * i)
-        x = x_center + size * math.cos(angle)
-        y = y_center + size * math.sin(angle)
-        points.extend([x, y])
-    canvas.create_polygon(points, outline = 'grey', fill = 'white', width = 5)
-
 
 def reset():
     for butt in buttons:
@@ -147,14 +138,13 @@ used_combinations = set()
 
 #window
 window = tk.Tk() #create window
-window.geometry("1920x1200") #size
+window.geometry("1280x800") #size
 window.title("sidecar") #title
 
 #canvas
-canvas = tk.Canvas(window, width = 1920, height = 1200, bg = '#ab3fd9')
+canvas = tk.Canvas(window, width = 1280, height = 800, bg = '#ab3fd9')
 canvas.place(x=0, y=0)
-#create_hexagon(canvas, 960, 600, 250)
-canvas.create_polygon((835,383, 1085,383, 1210,600, 1085,817, 835,817, 710,600), fill = '#D1D1D1', outline=G_alliancecolor, width='5') #hexagon
+canvas.create_polygon((520,192, 760,192, 880,400, 760,608, 520,608, 400,400), fill = '#D1D1D1', outline=G_alliancecolor, width='5') #hexagon
 
 #reef buttons
 buttons = []
@@ -173,18 +163,18 @@ while i <= 11:
     buttons.append(button)
     i += 1
 
-buttons[0].place(x=313, y=390, height=50, width=50)
-buttons[1].place(x=387, y=390, height=50, width=50)
-buttons[2].place(x=484, y=350, height=50, width=50)
-buttons[3].place(x=515, y=290, height=50, width=50)
-buttons[4].place(x=515, y=160, height=50, width=50)
-buttons[5].place(x=484, y=100, height=50, width=50)
-buttons[6].place(x=387, y=60, height=50, width=50)
-buttons[7].place(x=313, y=60, height=50, width=50)
-buttons[8].place(x=215, y=100, height=50, width=50)
-buttons[9].place(x=185, y=160, height=50, width=50)
-buttons[10].place(x=185, y=290, height=50, width=50)
-buttons[11].place(x=215, y=350, height=50, width=50)
+buttons[0].place(x=313, y=390, height=80, width=80) #A
+buttons[1].place(x=387, y=390, height=80, width=80) #B
+buttons[2].place(x=484, y=350, height=80, width=80) #C
+buttons[3].place(x=515, y=290, height=80, width=80) #D
+buttons[4].place(x=515, y=160, height=80, width=80) #E
+buttons[5].place(x=484, y=100, height=80, width=80) #F
+buttons[6].place(x=660, y=92, height=80, width=80) #G
+buttons[7].place(x=540, y=92, height=80, width=80) #H
+buttons[8].place(x=215, y=100, height=80, width=80) #I
+buttons[9].place(x=185, y=160, height=80, width=80) #J
+buttons[10].place(x=185, y=290, height=80, width=80) #K
+buttons[11].place(x=215, y=350, height=80, width=80) #L
 
 
 #buttons for selecting level
@@ -203,21 +193,21 @@ while j <= 3:
         window,
         text=('L' + str(j+1)),
         bg="white",
-        font=('Book Antiqua', 18),
+        font=('Book Antiqua', 30),
     )
     buttons2.append(button)
     j += 1
 
-buttons2[3].place(x=600, y=75, height=75, width=200)
+buttons2[3].place(x=1025, y=55, height=140, width=320)
 buttons2[3].config(command=lambda: scoringLevel(buttons2[3], "Level 4"))
 
-buttons2[2].place(x=600, y=162, height=75, width=200)
+buttons2[2].place(x=1025, y=255, height=140, width=320)
 buttons2[2].config(command=lambda: scoringLevel(buttons2[2], "Level 3"))
 
-buttons2[1].place(x=600, y=263, height=75, width=200)
+buttons2[1].place(x=1025, y=455, height=140, width=320)
 buttons2[1].config(command=lambda: scoringLevel(buttons2[1], "Level 2"))
 
-buttons2[0].place(x=600, y=365, height=75, width=200)
+buttons2[0].place(x=1025, y=655, height=140, width=320)
 buttons2[0].config(command=lambda: scoringLevel(buttons2[0], "Level 1"))
 
 #run
