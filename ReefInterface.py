@@ -34,7 +34,6 @@ def scoringLevel(button, place):
     level = place
     combinationater(location, place)
 
-
 def gamePieceSelect():
     global currentIntakeMode
     global gamePiece
@@ -91,9 +90,6 @@ def reset():
         butt['bg'] = "white"
     for butt in buttons2:
         butt['bg'] = "white"
-    
-    currentIntakeMode = 1
-    gamePieceSelect()
 
     sidecarTables.putString("scoringLocation", "")
     sidecarTables.putString("scoringLevel", "")
@@ -141,11 +137,11 @@ used_combinations = set()
 
 #window
 window = tk.Tk() #create window
-window.geometry("850x500") #size
+window.geometry("1920x1200") #size
 window.title("sidecar") #title
 
 #canvas
-canvas = tk.Canvas(window, width = 850, height = 500, bg = '#ab3fd9')
+canvas = tk.Canvas(window, width = 1920, height = 1200, bg = '#ab3fd9')
 canvas.place(x=0, y=0)
 canvas.create_polygon((300,120, 450,120, 525,250, 450,380, 300,380, 225,250), fill = '#D1D1D1', outline=G_alliancecolor, width='5') #hexagon
 
