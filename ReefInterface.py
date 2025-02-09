@@ -1,7 +1,7 @@
 import tkinter as tk
 import array as arr
 import csv
-
+import math
 import time
 import sys
 
@@ -85,6 +85,16 @@ def combinationater(place, level):
     else:
         print("Combination " + str(new_combination) + " already used")
 
+def create_hexagon(canvas, x_center, y_center, size):
+    points = []
+    for i in range(6):
+        angle = math.radians(60 * i)
+        x = x_center + size * math.cos(angle)
+        y = y_center + size * math.sin(angle)
+        points.extend([x, y])
+    canvas.create_polygon(points, outline = 'grey', fill = 'white', width = 5)
+
+
 def reset():
     for butt in buttons:
         butt['bg'] = "white"
@@ -143,7 +153,8 @@ window.title("sidecar") #title
 #canvas
 canvas = tk.Canvas(window, width = 1920, height = 1200, bg = '#ab3fd9')
 canvas.place(x=0, y=0)
-canvas.create_polygon((300,120, 450,120, 525,250, 450,380, 300,380, 225,250), fill = '#D1D1D1', outline=G_alliancecolor, width='5') #hexagon
+#create_hexagon(canvas, 960, 600, 250)
+canvas.create_polygon((835,383, 1085,383, 1210,600, 1085,817, 835,817, 710,600), fill = '#D1D1D1', outline=G_alliancecolor, width='5') #hexagon
 
 #reef buttons
 buttons = []
@@ -197,7 +208,7 @@ while j <= 3:
     buttons2.append(button)
     j += 1
 
-buttons2[3].place(x=600, y=60, height=75, width=200)
+buttons2[3].place(x=600, y=75, height=75, width=200)
 buttons2[3].config(command=lambda: scoringLevel(buttons2[3], "Level 4"))
 
 buttons2[2].place(x=600, y=162, height=75, width=200)
