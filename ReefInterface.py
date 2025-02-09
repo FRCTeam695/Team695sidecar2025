@@ -163,9 +163,9 @@ while i <= 11:
     buttons.append(button)
     i += 1
 
-buttons[0].place(x=313, y=390, height=80, width=80) #A
-buttons[1].place(x=387, y=390, height=80, width=80) #B
-buttons[2].place(x=484, y=350, height=80, width=80) #C
+buttons[0].place(x=540, y=628, height=80, width=80) #A
+buttons[1].place(x=660, y=628, height=80, width=80) #B
+buttons[2].place(x=800, y=350, height=80, width=80) #C
 buttons[3].place(x=515, y=290, height=80, width=80) #D
 buttons[4].place(x=515, y=160, height=80, width=80) #E
 buttons[5].place(x=484, y=100, height=80, width=80) #F
