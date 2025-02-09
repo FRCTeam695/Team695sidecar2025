@@ -144,7 +144,7 @@ window.title("sidecar") #title
 #canvas
 canvas = tk.Canvas(window, width = 1280, height = 800, bg = '#ab3fd9')
 canvas.place(x=0, y=0)
-canvas.create_polygon((520,192, 760,192, 880,400, 760,608, 520,608, 400,400), fill = '#D1D1D1', outline=G_alliancecolor, width='5') #hexagon
+canvas.create_polygon((440,192, 680,192, 800,400, 680,608, 440,608, 320,400), fill = '#D1D1D1', outline=G_alliancecolor, width='5') #hexagon
 
 #reef buttons
 buttons = []
@@ -163,18 +163,18 @@ while i <= 11:
     buttons.append(button)
     i += 1
 
-buttons[0].place(x=540, y=628, height=80, width=80) #A
-buttons[1].place(x=660, y=628, height=80, width=80) #B
-buttons[2].place(x=800, y=570, height=80, width=80) #C
-buttons[3].place(x=515, y=290, height=80, width=80) #D
-buttons[4].place(x=515, y=160, height=80, width=80) #E
-buttons[5].place(x=484, y=100, height=80, width=80) #F
-buttons[6].place(x=660, y=92, height=80, width=80) #G
-buttons[7].place(x=540, y=92, height=80, width=80) #H
-buttons[8].place(x=380, y=170, height=80, width=80) #I
-buttons[9].place(x=340, y=270, height=80, width=80) #J
-buttons[10].place(x=185, y=290, height=80, width=80) #K
-buttons[11].place(x=215, y=350, height=80, width=80) #L
+buttons[0].place(x=460, y=628, height=80, width=80) #A
+buttons[1].place(x=580, y=628, height=80, width=80) #B
+buttons[2].place(x=740, y=550, height=80, width=80) #C
+buttons[3].place(x=800, y=445, height=80, width=80) #D
+buttons[4].place(x=800, y=270, height=80, width=80) #E
+buttons[5].place(x=740, y=160, height=80, width=80) #F
+buttons[6].place(x=580, y=92, height=80, width=80) #G
+buttons[7].place(x=460, y=92, height=80, width=80) #H
+buttons[8].place(x=300, y=160, height=80, width=80) #I
+buttons[9].place(x=240, y=270, height=80, width=80) #J
+buttons[10].place(x=240, y=445, height=80, width=80) #K
+buttons[11].place(x=300, y=550, height=80, width=80) #L
 
 
 #buttons for selecting level
