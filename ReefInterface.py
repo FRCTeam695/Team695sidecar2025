@@ -137,7 +137,7 @@ window.title("sidecar") #title
 #canvas
 canvas = tk.Canvas(window, width = 1280, height = 800, bg = '#ab3fd9')
 canvas.place(x=0, y=0)
-canvas.create_polygon((520,192, 760,192, 880,400, 760,608, 520,608, 400,400), fill = '#D1D1D1', outline=G_alliancecolor, width='5') #hexagon
+canvas.create_polygon((440,192, 680,192, 800,400, 680,608, 440,608, 320,400), fill = '#D1D1D1', outline=G_alliancecolor, width='5') #hexagon
 
 #reef buttons
 buttons = []
