@@ -38,8 +38,8 @@ def gamePieceSelect():
     global currentIntakeMode
     global gamePiece
 
-    if currentIntakeMode == 1:
-        currentIntakeMode = 2
+    if currentIntakeMode == "Coral":
+        currentIntakeMode = "Algae"
         gamePiece.config(bg="#00CED1", text="Algae")
         canvas['bg'] = "#48D1CC"
 
@@ -48,7 +48,7 @@ def gamePieceSelect():
         buttons2[0].config(bg='gray', command=obsolete)
         buttons2[3].config(bg='gray', command=obsolete)
     else:
-        currentIntakeMode = 1
+        currentIntakeMode = "Coral"
         gamePiece.config(bg="#9400D3", text="Coral")
         canvas['bg'] = "#ab3fd9"
 
@@ -57,8 +57,8 @@ def gamePieceSelect():
         buttons2[0].config(bg='white', command=lambda: scoringLevel(buttons2[0], "Level 1"))
         buttons2[3].config(bg='white', command=lambda: scoringLevel(buttons2[3], "Level 4"))
 
-    print("Intake mode " + str(currentIntakeMode) + " was chosen")
-    sidecarTables.putNumber("currentIntakeMode", currentIntakeMode)
+    print("Intake mode " + currentIntakeMode + " was chosen")
+    sidecarTables.putString("currentIntakeMode", currentIntakeMode)
 
 
 #change color of hexagon depending on alliance color
@@ -128,8 +128,8 @@ sidecarTables.putString("scoringLocation", "")
 sidecarTables.putString("scoringLevel", "")
 
 #set default intake mode to coral
-currentIntakeMode = 1
-sidecarTables.putNumber("currentIntakeMode", currentIntakeMode)
+currentIntakeMode = "Coral"
+sidecarTables.putString("currentIntakeMode", currentIntakeMode)
 
 #set default location and level to nothing
 location = ""
@@ -165,7 +165,7 @@ while i <= 11:
 
 buttons[0].place(x=540, y=628, height=80, width=80) #A
 buttons[1].place(x=660, y=628, height=80, width=80) #B
-buttons[2].place(x=800, y=350, height=80, width=80) #C
+buttons[2].place(x=800, y=570, height=80, width=80) #C
 buttons[3].place(x=515, y=290, height=80, width=80) #D
 buttons[4].place(x=515, y=160, height=80, width=80) #E
 buttons[5].place(x=484, y=100, height=80, width=80) #F
@@ -198,16 +198,16 @@ while j <= 3:
     buttons2.append(button)
     j += 1
 
-buttons2[3].place(x=1025, y=55, height=140, width=320)
+buttons2[3].place(x=925, y=33, height=140, width=320)
 buttons2[3].config(command=lambda: scoringLevel(buttons2[3], "Level 4"))
 
-buttons2[2].place(x=1025, y=255, height=140, width=320)
+buttons2[2].place(x=925, y=233, height=140, width=320)
 buttons2[2].config(command=lambda: scoringLevel(buttons2[2], "Level 3"))
 
-buttons2[1].place(x=1025, y=455, height=140, width=320)
+buttons2[1].place(x=925, y=433, height=140, width=320)
 buttons2[1].config(command=lambda: scoringLevel(buttons2[1], "Level 2"))
 
-buttons2[0].place(x=1025, y=655, height=140, width=320)
+buttons2[0].place(x=925, y=633, height=140, width=320)
 buttons2[0].config(command=lambda: scoringLevel(buttons2[0], "Level 1"))
 
 #run
