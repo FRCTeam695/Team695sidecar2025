@@ -38,8 +38,8 @@ def gamePieceSelect():
     global currentIntakeMode
     global gamePiece
 
-    if currentIntakeMode == 1:
-        currentIntakeMode = 2
+    if currentIntakeMode == "Coral":
+        currentIntakeMode = "Algae"
         gamePiece.config(bg="#00CED1", text="Algae")
         canvas['bg'] = "#48D1CC"
 
@@ -48,7 +48,7 @@ def gamePieceSelect():
         buttons2[0].config(bg='gray', command=obsolete)
         buttons2[3].config(bg='gray', command=obsolete)
     else:
-        currentIntakeMode = 1
+        currentIntakeMode = "Coral"
         gamePiece.config(bg="#9400D3", text="Coral")
         canvas['bg'] = "#ab3fd9"
 
@@ -57,8 +57,8 @@ def gamePieceSelect():
         buttons2[0].config(bg='white', command=lambda: scoringLevel(buttons2[0], "Level 1"))
         buttons2[3].config(bg='white', command=lambda: scoringLevel(buttons2[3], "Level 4"))
 
-    print("Intake mode " + str(currentIntakeMode) + " was chosen")
-    sidecarTables.putNumber("currentIntakeMode", currentIntakeMode)
+    print("Intake mode " + currentIntakeMode + " was chosen")
+    sidecarTables.putString("currentIntakeMode", currentIntakeMode)
 
 
 #change color of hexagon depending on alliance color
@@ -128,8 +128,8 @@ sidecarTables.putString("scoringLocation", "")
 sidecarTables.putString("scoringLevel", "")
 
 #set default intake mode to coral
-currentIntakeMode = 1
-sidecarTables.putNumber("currentIntakeMode", currentIntakeMode)
+currentIntakeMode = "Coral"
+sidecarTables.putString("currentIntakeMode", currentIntakeMode)
 
 #set default location and level to nothing
 location = ""
@@ -163,9 +163,9 @@ while i <= 11:
     buttons.append(button)
     i += 1
 
-buttons[0].place(x=313, y=390, height=80, width=80) #A
-buttons[1].place(x=387, y=390, height=80, width=80) #B
-buttons[2].place(x=484, y=350, height=80, width=80) #C
+buttons[0].place(x=540, y=628, height=80, width=80) #A
+buttons[1].place(x=660, y=628, height=80, width=80) #B
+buttons[2].place(x=800, y=570, height=80, width=80) #C
 buttons[3].place(x=515, y=290, height=80, width=80) #D
 buttons[4].place(x=515, y=160, height=80, width=80) #E
 buttons[5].place(x=484, y=100, height=80, width=80) #F
