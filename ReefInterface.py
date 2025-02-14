@@ -93,7 +93,7 @@ def reset():
             butt['bg'] = "gray"
 
     sidecarTables.putString("scoringLocation", "")
-    sidecarTables.putString("scoringLevel", level)
+    sidecarTables.putNumber("scoringLevel", 0.0)
 
 def obsolete():
     print("Button obsolete for selected intake mode")
@@ -123,15 +123,13 @@ else:
 #set default location and level to nothing
 location = ""
 level = 0.0
+scoringMode = "Coral"
 used_combinations = set()
 
 #creates table and sets to none
 sidecarTables = NetworkTables.getTable("sidecarTable")
 sidecarTables.putString("scoringLocation", "")
 sidecarTables.putNumber("scoringLevel", level)
-
-#set default intake mode to coral
-scoringMode = "Coral"
 sidecarTables.putString("currentIntakeMode", scoringMode)
 
 #window
