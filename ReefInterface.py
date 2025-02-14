@@ -43,20 +43,15 @@ def gamePieceSelect():
         gamePiece.config(bg="#00CED1", text="Algae")
         canvas['bg'] = "#48D1CC"
 
-        for butt in buttons2:
-            butt.config(bg='gray')
+        buttons2[0].config(bg='gray', command=obsolete)
+        buttons2[3].config(bg='gray', command=obsolete)
     else:
         scoringMode = "Coral"
         gamePiece.config(bg="#9400D3", text="Coral")
         canvas['bg'] = "#ab3fd9"
 
-        for butt in buttons2:
-            butt.config(bg='white')
-
-        #when changing back to coral mode, retain color selected
-        index = int(level[-1]) - 1
-        print(index)
-        buttons2[index].config(bg=G_alliancecolor)
+        buttons2[0].config(bg='white', command=lambda: scoringLevel(buttons2[0], "Level 1"))
+        buttons2[3].config(bg='white', command=lambda: scoringLevel(buttons2[3], "Level 4"))
 
     print("Intake mode " + scoringMode + " was chosen")
     sidecarTables.putString("currentIntakeMode", scoringMode)
@@ -102,6 +97,8 @@ def reset():
     sidecarTables.putString("scoringLocation", "")
     sidecarTables.putString("scoringLevel", "")
 
+def obsolete():
+    print("Button obsolete for selected intake mode")
 
 def connectionListener(connected, info):
     print(info, "; Connected=%s" % connected)
