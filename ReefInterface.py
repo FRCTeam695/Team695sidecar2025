@@ -21,18 +21,16 @@ def buttonPressed(i):
     sidecarTables.putString("scoringLocation", location)
     combinationater(location, level)
 
-def scoringLevel(button, place):
-    global level
+def scoringLevel(button, level):
 
     for butt in buttons2:
         if butt['bg'] == G_alliancecolor:
             butt['bg'] = 'white'
     button['bg'] = G_alliancecolor
 
-    print(place + " was chosen")
-    sidecarTables.putString("scoringLevel", place)
-    level = place
-    combinationater(location, place)
+    print(str(level) + " was chosen")
+    sidecarTables.putNumber("scoringLevel", level)
+    combinationater(location, level)
 
 def gamePieceSelect():
     global scoringMode
@@ -100,7 +98,7 @@ def reset():
             butt['bg'] = "gray"
 
     sidecarTables.putString("scoringLocation", "")
-    sidecarTables.putString("scoringLevel", "")
+    sidecarTables.putString("scoringLevel", level)
 
 
 def connectionListener(connected, info):
@@ -125,20 +123,19 @@ if NetworkTables.isConnected():
 else:
     print("Failed to connect to NetworkTables server")
 
+#set default location and level to nothing
+location = ""
+level = 0.0
+used_combinations = set()
 
 #creates table and sets to none
 sidecarTables = NetworkTables.getTable("sidecarTable")
 sidecarTables.putString("scoringLocation", "")
-sidecarTables.putString("scoringLevel", "")
+sidecarTables.putNumber("scoringLevel", level)
 
 #set default intake mode to coral
 scoringMode = "Coral"
 sidecarTables.putString("currentIntakeMode", scoringMode)
-
-#set default location and level to nothing
-location = ""
-level = ""
-used_combinations = set()
 
 #window
 window = tk.Tk() #create window
@@ -203,16 +200,16 @@ while j <= 3:
     j += 1
 
 buttons2[3].place(x=910, y=92, height=130, width=320)
-buttons2[3].config(command=lambda: scoringLevel(buttons2[3], "Level 4"))
+buttons2[3].config(command=lambda: scoringLevel(buttons2[3], 4.0))
 
 buttons2[2].place(x=910, y=254, height=130, width=320)
-buttons2[2].config(command=lambda: scoringLevel(buttons2[2], "Level 3"))
+buttons2[2].config(command=lambda: scoringLevel(buttons2[2], 3.0))
 
 buttons2[1].place(x=910, y=416, height=130, width=320)
-buttons2[1].config(command=lambda: scoringLevel(buttons2[1], "Level 2"))
+buttons2[1].config(command=lambda: scoringLevel(buttons2[1], 2.0))
 
 buttons2[0].place(x=910, y=578, height=130, width=320)
-buttons2[0].config(command=lambda: scoringLevel(buttons2[0], "Level 1"))
+buttons2[0].config(command=lambda: scoringLevel(buttons2[0], 1.0))
 
 #run
 window.mainloop()
