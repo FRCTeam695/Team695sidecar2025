@@ -89,8 +89,10 @@ def reset():
     elif(scoringMode == "Algae"):
         for butt in buttons:
             butt['bg'] = "white"
-        for butt in buttons2:
-            butt['bg'] = "gray"
+        buttons2[0]['bg'] = "gray"
+        buttons2[3]['bg'] = "gray"
+        buttons2[1]['bg'] = "white"
+        buttons2[2]['bg'] = "white"
 
     sidecarTables.putString("scoringLocation", "")
     sidecarTables.putNumber("scoringLevel", 0.0)
