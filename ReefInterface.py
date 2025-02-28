@@ -7,7 +7,6 @@ import sys
 
 from networktables import NetworkTables
 
-
 def buttonPressed(i):
     global location
     location = buttonLabels[i]
@@ -31,29 +30,6 @@ def scoringLevel(button, level):
     print(str(level) + " was chosen")
     sidecarTables.putNumber("scoringLevel", level)
     combinationater(location, level)
-
-def gamePieceSelect():
-    global scoringMode
-    global gamePiece
-
-    if scoringMode == "Coral":
-        scoringMode = "Algae"
-        gamePiece.config(bg="#00CED1", text="Algae")
-        canvas['bg'] = "#48D1CC"
-
-        buttons2[0].config(bg='gray', command=obsolete)
-        buttons2[3].config(bg='gray', command=obsolete)
-    else:
-        scoringMode = "Coral"
-        gamePiece.config(bg="#9400D3", text="Coral")
-        canvas['bg'] = "#ab3fd9"
-
-        buttons2[0].config(bg='white', command=lambda: scoringLevel(buttons2[0], "Level 1"))
-        buttons2[3].config(bg='white', command=lambda: scoringLevel(buttons2[3], "Level 4"))
-
-    print("Intake mode " + scoringMode + " was chosen")
-    sidecarTables.putString("currentIntakeMode", scoringMode)
-
 
 #change color of hexagon depending on alliance color
 def valueChanged(table, key, value, isNew): 
@@ -81,18 +57,10 @@ def combinationater(place, level):
 
 
 def reset():
-    if(scoringMode == "Coral"):
-        for butt in buttons:
-            butt['bg'] = "white"
-        for butt in buttons2:
-            butt['bg'] = "white"
-    elif(scoringMode == "Algae"):
-        for butt in buttons:
-            butt['bg'] = "white"
-        buttons2[0]['bg'] = "gray"
-        buttons2[3]['bg'] = "gray"
-        buttons2[1]['bg'] = "white"
-        buttons2[2]['bg'] = "white"
+    for butt in buttons:
+        butt['bg'] = "white"
+    for butt in buttons2:
+        butt['bg'] = "white"
 
     sidecarTables.putString("scoringLocation", "")
     sidecarTables.putNumber("scoringLevel", 0.0)
@@ -125,14 +93,12 @@ else:
 #set default location and level to nothing
 location = ""
 level = 0.0
-scoringMode = "Coral"
 used_combinations = set()
 
 #creates table and sets to none
 sidecarTables = NetworkTables.getTable("sidecarTable")
 sidecarTables.putString("scoringLocation", "")
 sidecarTables.putNumber("scoringLevel", level)
-sidecarTables.putString("currentIntakeMode", scoringMode)
 
 #window
 window = tk.Tk() #create window
@@ -174,15 +140,9 @@ buttons[9].place(x=240, y=270, height=80, width=80) #J
 buttons[10].place(x=240, y=445, height=80, width=80) #K
 buttons[11].place(x=300, y=550, height=80, width=80) #L
 
-
-#buttons for selecting level
-gamePiece = tk.Button(window, text="Coral", bg="#9400D3", font=("Book Antiqua", 24))
-gamePiece.config(command=gamePieceSelect)
-gamePiece.place(x=50, y=187, height=160, width=160)
-
 resetButton = tk.Button(window, text="Reset", bg="white", font=("Book Antiqua", 24))
 resetButton.config(command=reset)
-resetButton.place(x=50, y=453, height=160, width=160)
+resetButton.place(x=50, y=315, height=160, width=160)
 
 buttons2 = []
 j = 0
