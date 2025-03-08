@@ -115,11 +115,14 @@ buttonLabels = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L"]
 
 i = 0
 while i <= 11:
+    index = i
+    if i % 2 == 1:
+        index = i - 1
     button = tk.Button(
         window,
-        text=buttonLabels[i],
+        text=buttonLabels[index],
         bg="white",
-        font=('Book Antiqua', 21),
+        font=('Book Antiqua', 24),
         command=lambda b=i: buttonPressed(b)
         #command=lambda: [buttonPressed(button), change_color]
     )
