@@ -13,8 +13,7 @@ def buttonPressed(i):
     location = buttonLabels[i]
 
     for butt in buttons:
-        if butt['bg'] == '#FF1493':
-            butt['bg'] = 'white'
+        butt['bg'] = 'white'
     buttons[i].config(bg='#FF1493')
 
     print(location + " was chosen")
@@ -184,27 +183,24 @@ resetButton.place(x=50, y=453, height=160, width=160)
 
 buttons2 = []
 j = 0
-while j <= 3:
+while j <= 2:
     button = tk.Button(
         window,
-        text=('L' + str(j+1)),
+        text=('L' + str(j+2)),
         bg="white",
-        font=('Book Antiqua', 30),
+        font=('Book Antiqua', 40),
     )
     buttons2.append(button)
     j += 1
 
-buttons2[3].place(x=910, y=92, height=130, width=320)
-buttons2[3].config(command=lambda: scoringLevel(buttons2[3], 4.0))
+buttons2[2].place(x=910, y=92, height=170, width=320)
+buttons2[2].config(command=lambda: scoringLevel(buttons2[2], 4.0))
 
-buttons2[2].place(x=910, y=254, height=130, width=320)
-buttons2[2].config(command=lambda: scoringLevel(buttons2[2], 3.0))
+buttons2[1].place(x=910, y=315, height=170, width=320)
+buttons2[1].config(command=lambda: scoringLevel(buttons2[1], 3.0))
 
-buttons2[1].place(x=910, y=416, height=130, width=320)
-buttons2[1].config(command=lambda: scoringLevel(buttons2[1], 2.0))
-
-buttons2[0].place(x=910, y=578, height=130, width=320)
-buttons2[0].config(command=lambda: scoringLevel(buttons2[0], 1.0))
+buttons2[0].place(x=910, y=538, height=170, width=320)
+buttons2[0].config(command=lambda: scoringLevel(buttons2[0], 2.0))
 
 #run
 window.mainloop()
